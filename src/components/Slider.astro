@@ -1,0 +1,95 @@
+<section class="relative w-full h-screen overflow-hidden">
+    <div id="slider" class="flex transition-transform duration-700 ease-in-out h-full">
+        <div class="relative flex-shrink-0 w-full h-full">
+            <img src="/images/slide1.png" alt="Carga paletizada eficiente" class="w-full h-full object-cover" />
+            <div class="absolute inset-0 bg-black bg-opacity-50 flex justify-center items-center px-6 text-white">
+                <div class="text-center">
+                    <h1 class="text-4xl md:text-6xl font-bold mb-4">Carga Paletizada Confiable</h1>
+                    <p class="text-lg md:text-xl mb-6">
+                        Transporte seguro y organizado con nuestra plataforma especializada.
+                    </p>
+                    <a href="https://wa.me/123456789" target="_blank" rel="noopener noreferrer"
+                        class="bg-white text-gray-800 px-6 py-3 rounded-lg font-semibold hover:bg-gray-100 transition">
+                        Consultar Ahora
+                        <i class="fa-brands fa-whatsapp ml-2"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="relative flex-shrink-0 w-full h-full">
+            <img src="/images/slide2.png" alt="Carga paletizada eficiente" class="w-full h-full object-cover" />
+            <div class="absolute inset-0 bg-black bg-opacity-50 flex justify-center items-center px-6 text-white">
+                <div class="text-center">
+                    <h1 class="text-4xl md:text-6xl font-bold mb-4">Carga Paletizada Confiable</h1>
+                    <p class="text-lg md:text-xl mb-6">
+                        Transporte seguro y organizado con nuestra plataforma especializada.
+                    </p>
+                    <a href="https://wa.me/123456789" target="_blank" rel="noopener noreferrer"
+                        class="bg-white text-gray-800 px-6 py-3 rounded-lg font-semibold hover:bg-gray-100 transition">
+                        Consultar Ahora
+                        <i class="fa-brands fa-whatsapp ml-2"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="relative flex-shrink-0 w-full h-full">
+            <img src="/images/slide3.png" alt="Carga paletizada eficiente" class="w-full h-full object-cover" />
+            <div class="absolute inset-0 bg-black bg-opacity-50 flex justify-center items-center px-6 text-white">
+                <div class="text-center">
+                    <h1 class="text-4xl md:text-6xl font-bold mb-4">Carga Paletizada Confiable</h1>
+                    <p class="text-lg md:text-xl mb-6">
+                        Transporte seguro y organizado con nuestra plataforma especializada.
+                    </p>
+                    <a href="https://wa.me/123456789" target="_blank" rel="noopener noreferrer"
+                        class="bg-white text-gray-800 px-6 py-3 rounded-lg font-semibold hover:bg-gray-100 transition">
+                        Consultar Ahora
+                        <i class="fa-brands fa-whatsapp ml-2"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <button id="prevBtn"
+        class="absolute top-1/2 left-4 transform -translate-y-1/2 bg-gray-800 text-white w-10 h-10 flex items-center justify-center rounded-full hover:bg-gray-600 transition">
+        <i class="fas fa-chevron-left"></i>
+    </button>
+    <button id="nextBtn"
+        class="absolute top-1/2 right-4 transform -translate-y-1/2 bg-gray-800 text-white w-10 h-10 flex items-center justify-center rounded-full hover:bg-gray-600 transition">
+        <i class="fas fa-chevron-right"></i>
+    </button>
+</section>
+
+<script>
+    document.addEventListener("DOMContentLoaded", () => {
+        const slider = document.getElementById("slider");
+        const slides = slider?.children || [];
+        const prevBtn = document.getElementById("prevBtn");
+        const nextBtn = document.getElementById("nextBtn");
+        let currentSlide = 0;
+
+        if (!slider || slides.length === 0) return;
+
+        const updateSlider = () => {
+            slider.style.transform = `translateX(-${currentSlide * 100}%)`;
+        };
+
+        const handleAutoSlide = () => setInterval(() => {
+            currentSlide = (currentSlide + 1) % slides.length;
+            updateSlider();
+        }, 5000);
+
+        prevBtn?.addEventListener("click", () => {
+            currentSlide = (currentSlide - 1 + slides.length) % slides.length;
+            updateSlider();
+        });
+
+        nextBtn?.addEventListener("click", () => {
+            currentSlide = (currentSlide + 1) % slides.length;
+            updateSlider();
+        });
+
+        handleAutoSlide();
+        updateSlider();
+    });
+</script>
