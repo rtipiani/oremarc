@@ -2,15 +2,21 @@
 import Slider from '../components/Slider.astro';
 import Whychooseus from '../components/Whychooseus.astro';
 import OurServices from '../components/OurServices.astro';
+import Contact from '../components/Contact.astro';
+import Map from '../components/Map.astro';
 import Footer from '../components/Footer.astro';
 import Aboutus from '../components/AboutUs.astro';
 import Layout from '../layouts/Layout.astro';
+import Navbar from '../components/Navbar.astro';
 ---
 
 <Layout>
+	<Navbar />
 	<Slider />
 	
 	<Aboutus />
 	<OurServices />
+	<Contact />
+	<Map />
 	<Footer />
 </Layout>

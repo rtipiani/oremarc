@@ -1,8 +1,8 @@
 ---
 const servicios = [
   { titulo: "Transporte de Carga y Mercancía.", descripcion: "Soluciones confiables y eficientes para el transporte de carga y mercancías.", icono: "/images/logistica.png" },
-  { titulo: "Transporte de Carga Pesada y Liviana.", descripcion: "Gestión especializada en el transporte de carga pesada y liviana con eficiencia y seguridad.", icono: "/images/maquina-elevadora.png" },
   { titulo: "Servicio de Mudanza a Nivel Nacional.", descripcion: "Soluciones personalizadas para mudanzas seguras, rápidas y confiables.", icono: "/images/entrega.png" },
+  { titulo: "Transporte de Carga Pesada y Liviana.", descripcion: "Gestión especializada en el transporte de carga pesada y liviana con eficiencia y seguridad.", icono: "/images/maquina-elevadora.png" },
   { titulo: "Servicio de Embalaje para Traslados.", descripcion: "Protección eficiente y profesional para garantizar el traslado seguro de sus bienes.", icono: "/images/caja.png" },
   { titulo: "Servicio de Repartos.", descripcion: "Distribución ágil y confiable para entregas locales y nacionales.", icono: "/images/repartidor.png" },
   { titulo: "Servicio de Courier, Retail.", descripcion: "Transporte express para necesidades minoristas y logísticas específicas.", icono: "/images/camion.png" },
@@ -14,7 +14,7 @@ const servicios = [
   { titulo: "Carga Apilable.", descripcion: "Soluciones prácticas para el manejo de cargas apilables con seguridad.", icono: "/images/apilable.png" },
 ];
 ---
-<section class="py-16 bg-gradient-to-b from-gray-50 to-gray-200">
+<section id="servicios" class="py-16 bg-gradient-to-b from-gray-50 to-gray-200">
     <div class="container mx-auto px-6">
         <div class="text-center mb-12">
             <h3 class="text-4xl font-extrabold text-gray-800">
@@ -39,8 +39,12 @@ const servicios = [
                         <p class="text-gray-600 mt-4">
                             {servicio.descripcion}
                         </p>
+                        <a href="tel:+51967276494" class="inline-flex items-center gap-2 mt-3 border-2 border-primary text-black px-4 py-2 rounded-full text-sm font-semibold hover:bg-black hover:text-white hover:border-none transition">
+                            Llámanos
+                            <i class="fas fa-phone"></i>
+                        </a>
                         <a href={`https://wa.me/51967276494?text=¡Hola!%20*OREMARC*%20Estoy%20interesado%20en%20el%20servicio%20de%20${encodeURIComponent(servicio.titulo)}`} target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 mt-6 bg-primary text-white px-4 py-2 rounded-full text-sm font-bold hover:bg-black transition">
-                            Consultar ahora
+                            Escríbenos
                             <i class="fab fa-whatsapp"></i>
                         </a>
                     </div>
