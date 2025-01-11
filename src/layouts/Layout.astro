@@ -1,15 +1,42 @@
 ---
 import WhatsApp from '../components/WhatsApp.astro';
 import '../styles/global.css';
+const meta = {
+	title: "Oremarc | Operador logístico especializado | Operador Logístico en Perú, Logística en Lima.",
+	description: "Somos un Operador Logístico en Perú que diseña los procesos de una o varias fases de la cadena de suministro (transporte, almacenaje y distribución)",
+	url: "https://oremarc.com.pe/",
+};
 ---
 <!doctype html>
 <html lang="es">
 	<head>
 		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Oremarc | Operador logístico especializado</title>
+		<meta property="og:locale" content="es_PE" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<meta name="robots" content="index, follow" />
+		<meta name="author" content="Rubén Tipiani" />
+		<meta name="copyright" content="Copyright (c) 2025 American Trekking Cusco" />
+		<meta name="description" content={meta.description} />
+		
+		<title>{meta.title}</title>
+
+		<meta property="og:site_name" content="Oremarc Perú S.A.C" />
+		<meta property="og:title" content={meta.title} />
+		<meta property="og:description" content={meta.description} />
+		<meta property="og:image" content="https://www.oremarc.com.pe/images/imagen_de_previsualizacion.avif" />
+		<meta property="og:url" content={meta.url} />
+		<meta property="og:type" content="website" />
+		<meta property="og:image:width" content="1200" />
+		<meta property="og:image:height" content="630" />
+		<meta property="og:image:type" content="image/avif" />
+	
+		<link rel="canonical" href="https://www.oremarc.com.pe/" />
+		<link rel="icon" href="https://www.oremarc.com.pe/favicon.ico" type="image/x-icon" />
+	
+		<meta name="twitter:card" content="summary_large_image" />
+		<meta name="twitter:title" content={meta.title} />
+		<meta name="twitter:description" content={meta.description} />
+		<meta name="twitter:image" content="https://www.oremarc.com.pe/images/imagen_de_previsualizacion.avif" />
 	</head>
 	<body>
 		<slot />
