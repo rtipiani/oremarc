@@ -1,10 +1,8 @@
-<section class="relative w-full h-screen overflow-hidden">
+<section class="relative w-full md:h-screen overflow-hidden mt-24">
     <div id="slider" class="flex transition-transform duration-700 ease-in-out h-full">
         <!-- Slide 1 -->
         <div class="relative flex-shrink-0 w-full h-full">
-            <!-- Imagen para pantallas grandes -->
-            <img src="/images/slide1.avif" alt="Carga paletizada eficiente" class="w-full h-full object-cover md:block lg:block hidden" loading="eager" />
-            <!-- Imagen para pantallas pequeñas -->
+            <img src="/images/slide1.avif" alt="Carga paletizada eficiente" class="w-full h-full object-cover hidden md:block lg:block" loading="eager" />
             <img src="/images/slide1-1.avif" alt="Carga paletizada eficiente" class="w-full h-full object-contain sm:block lg:hidden" loading="eager" />
             <div class="absolute inset-0 bg-black bg-opacity-35 flex justify-center items-center px-6 text-white">
                 <div class="text-center">
@@ -25,10 +23,8 @@
 
         <!-- Slide 2 -->
         <div class="relative flex-shrink-0 w-full h-full">
-            <!-- Imagen para pantallas grandes -->
-            <img src="/images/slide2.avif" alt="Carga paletizada eficiente" class="w-full h-full object-cover md:block lg:block hidden" loading="lazy" />
-            <!-- Imagen para pantallas pequeñas -->
-            <img src="/images/slide2-2.avif" alt="Carga paletizada eficiente" class="w-full h-full object-contain sm:block lg:hidden" loading="lazy" />
+            <img src="/images/slide2.avif" alt="Soluciones de Transporte" class="w-full h-full object-cover hidden md:block lg:block" loading="lazy" />
+            <img src="/images/slide2-2.avif" alt="Soluciones de Transporte" class="w-full h-full object-contain sm:block lg:hidden" loading="lazy" />
             <div class="absolute inset-0 bg-black bg-opacity-35 flex justify-center items-center px-6 text-white">
                 <div class="text-center">
                     <h1 class="text-2xl md:text-4xl lg:text-4xl xl:text-5xl uppercase font-bold mb-4">
@@ -48,10 +44,8 @@
 
         <!-- Slide 3 -->
         <div class="relative flex-shrink-0 w-full h-full">
-            <!-- Imagen para pantallas grandes -->
-            <img src="/images/slide3.avif" alt="Carga paletizada eficiente" class="w-full h-full object-cover md:block lg:block hidden" loading="lazy" />
-            <!-- Imagen para pantallas pequeñas -->
-            <img src="/images/slide3-3.avif" alt="Carga paletizada eficiente" class="w-full h-full object-contain sm:block lg:hidden" loading="lazy" />
+            <img src="/images/slide3.avif" alt="Embalaje Industrial Seguro" class="w-full h-full object-cover hidden md:block lg:block" loading="lazy" />
+            <img src="/images/slide3-3.avif" alt="Embalaje Industrial Seguro" class="w-full h-full object-contain sm:block lg:hidden" loading="lazy" />
             <div class="absolute inset-0 bg-black bg-opacity-35 flex justify-center items-center px-6 text-white">
                 <div class="text-center">
                     <h1 class="text-2xl md:text-4xl lg:text-4xl xl:text-5xl uppercase font-bold mb-4">
@@ -70,14 +64,14 @@
         </div>
     </div>
 
-    <!-- Botones de Navegación -->
-    <button id="prevBtn" class="absolute top-1/2 left-4 transform -translate-y-1/2 bg-primary text-white w-10 h-10 flex items-center justify-center rounded-full hover:bg-black transition" aria-label="Anterior">
+    <button id="prevBtn" class="absolute top-1/2 left-4 transform -translate-y-1/2 bg-black text-white w-10 h-10 flex items-center justify-center rounded-full hover:bg-primary transition" aria-label="Anterior">
         <i class="fas fa-chevron-left"></i>
     </button>
-    <button id="nextBtn" class="absolute top-1/2 right-4 transform -translate-y-1/2 bg-primary text-white w-10 h-10 flex items-center justify-center rounded-full hover:bg-black transition" aria-label="Siguiente">
+    <button id="nextBtn" class="absolute top-1/2 right-4 transform -translate-y-1/2 bg-black text-white w-10 h-10 flex items-center justify-center rounded-full hover:bg-primary transition" aria-label="Siguiente">
         <i class="fas fa-chevron-right"></i>
     </button>
 </section>
+
 
 
 <script>
@@ -88,56 +82,46 @@
         const nextBtn = document.getElementById("nextBtn");
         let currentSlide = 0;
 
-        // Especificar el tipo de autoSlideInterval (number para navegadores)
         let autoSlideInterval: number;
 
         if (!slider || slides.length === 0) return;
 
-        // Función para actualizar la posición del slider
         const updateSlider = () => {
             slider.style.transform = `translateX(-${currentSlide * 100}%)`;
         };
 
-        // Función para iniciar el auto-slide con manejo de intervalos
         const handleAutoSlide = () => {
-            // Limpia cualquier intervalo activo antes de iniciar uno nuevo
             if (autoSlideInterval) clearInterval(autoSlideInterval);
 
-            // Crea un nuevo intervalo para auto-slide
             autoSlideInterval = window.setInterval(() => {
                 currentSlide = (currentSlide + 1) % slides.length;
                 updateSlider();
-            }, 7000); // Ajusta este valor (en milisegundos) para cambiar la velocidad del slider
+            }, 7000);
         };
 
-        // Función para pausar el auto-slide
         const pauseAutoSlide = () => {
             if (autoSlideInterval) clearInterval(autoSlideInterval);
         };
 
-        // Controlador de eventos para el botón anterior
         prevBtn?.addEventListener("click", () => {
-            pauseAutoSlide(); // Pausa el auto-slide
+            pauseAutoSlide();
             currentSlide = (currentSlide - 1 + slides.length) % slides.length;
             updateSlider();
-            handleAutoSlide(); // Reinicia el auto-slide
+            handleAutoSlide();
         });
 
-        // Controlador de eventos para el botón siguiente
         nextBtn?.addEventListener("click", () => {
-            pauseAutoSlide(); // Pausa el auto-slide
+            pauseAutoSlide();
             currentSlide = (currentSlide + 1) % slides.length;
             updateSlider();
-            handleAutoSlide(); // Reinicia el auto-slide
+            handleAutoSlide();
         });
 
-        // Inicia el auto-slide al cargar la página
         handleAutoSlide();
         updateSlider();
 
-        // Opcional: Limpiar el intervalo cuando sea necesario
         window.addEventListener("beforeunload", () => {
-            pauseAutoSlide(); // Limpia el intervalo al salir de la página
+            pauseAutoSlide();
         });
     });
 </script>
