@@ -1,7 +1,11 @@
 <section class="relative w-full h-screen overflow-hidden">
     <div id="slider" class="flex transition-transform duration-700 ease-in-out h-full">
+        <!-- Slide 1 -->
         <div class="relative flex-shrink-0 w-full h-full">
-            <img src="/images/slide1.avif" alt="Carga paletizada eficiente" class="w-full h-full object-cover" loading="eager" />
+            <!-- Imagen para pantallas grandes -->
+            <img src="/images/slide1.avif" alt="Carga paletizada eficiente" class="w-full h-full object-cover lg:block hidden" loading="eager" />
+            <!-- Imagen para pantallas pequeñas -->
+            <img src="/images/slide1-1.avif" alt="Carga paletizada eficiente" class="w-full h-full object-cover sm:block md:block lg:hidden" loading="eager" />
             <div class="absolute inset-0 bg-black bg-opacity-50 flex justify-center items-center px-6 text-white">
                 <div class="text-center">
                     <h1 class="text-4xl md:text-6xl font-bold mb-4">
@@ -11,15 +15,20 @@
                         Eficiencia y Seguridad en Cada Trayecto.
                     </p>
                     <a href="https://wa.me/123456789" target="_blank" rel="noopener noreferrer"
-                        class="bg-primary text-black px-6 py-3 rounded-lg font-bold text-lg hover:bg-gray-100 transition">
+                       class="bg-primary text-black px-6 py-3 rounded-lg font-bold text-lg hover:bg-gray-100 transition">
                         Consultar Ahora
                         <i class="fa-brands fa-whatsapp ml-2"></i>
                     </a>
                 </div>
             </div>
         </div>
+
+        <!-- Slide 2 -->
         <div class="relative flex-shrink-0 w-full h-full">
-            <img src="/images/slide2.avif" alt="Carga paletizada eficiente" class="w-full h-full object-cover" loading="lazy" />
+            <!-- Imagen para pantallas grandes -->
+            <img src="/images/slide2.avif" alt="Carga paletizada eficiente" class="w-full h-full object-cover lg:block hidden" loading="lazy" />
+            <!-- Imagen para pantallas pequeñas -->
+            <img src="/images/slide2-2.avif" alt="Carga paletizada eficiente" class="w-full h-full object-cover sm:block md:block lg:hidden" loading="lazy" />
             <div class="absolute inset-0 bg-black bg-opacity-50 flex justify-center items-center px-6 text-white">
                 <div class="text-center">
                     <h1 class="text-4xl md:text-6xl font-bold mb-4">
@@ -29,15 +38,20 @@
                         Tu Carga, Nuestra Prioridad.
                     </p>
                     <a href="https://wa.me/123456789" target="_blank" rel="noopener noreferrer"
-                        class="bg-primary text-black px-6 py-3 rounded-lg font-bold text-lg hover:bg-gray-100 transition">
+                       class="bg-primary text-black px-6 py-3 rounded-lg font-bold text-lg hover:bg-gray-100 transition">
                         Consultar Ahora
                         <i class="fa-brands fa-whatsapp ml-2"></i>
                     </a>
                 </div>
             </div>
         </div>
+
+        <!-- Slide 3 -->
         <div class="relative flex-shrink-0 w-full h-full">
-            <img src="/images/slide3.avif" alt="Carga paletizada eficiente" class="w-full h-full object-cover" loading="lazy" />
+            <!-- Imagen para pantallas grandes -->
+            <img src="/images/slide3.avif" alt="Carga paletizada eficiente" class="w-full h-full object-cover lg:block hidden" loading="lazy" />
+            <!-- Imagen para pantallas pequeñas -->
+            <img src="/images/slide3-3.avif" alt="Carga paletizada eficiente" class="w-full h-full object-cover sm:block md:block lg:hidden" loading="lazy" />
             <div class="absolute inset-0 bg-black bg-opacity-50 flex justify-center items-center px-6 text-white">
                 <div class="text-center">
                     <h1 class="text-4xl md:text-6xl font-bold mb-4">
@@ -47,7 +61,7 @@
                         Protegiendo tus Equipos desde el Origen
                     </p>
                     <a href="https://wa.me/123456789" target="_blank" rel="noopener noreferrer"
-                        class="bg-primary text-black px-6 py-3 rounded-lg font-bold text-lg hover:bg-gray-100 transition">
+                       class="bg-primary text-black px-6 py-3 rounded-lg font-bold text-lg hover:bg-gray-100 transition">
                         Consultar Ahora
                         <i class="fa-brands fa-whatsapp ml-2"></i>
                     </a>
@@ -56,15 +70,15 @@
         </div>
     </div>
 
-    <button id="prevBtn"
-        class="absolute top-1/2 left-4 transform -translate-y-1/2 bg-primary text-white w-10 h-10 flex items-center justify-center rounded-full hover:bg-black transition" aria-label="Anterior">
+    <!-- Botones de Navegación -->
+    <button id="prevBtn" class="absolute top-1/2 left-4 transform -translate-y-1/2 bg-primary text-white w-10 h-10 flex items-center justify-center rounded-full hover:bg-black transition" aria-label="Anterior">
         <i class="fas fa-chevron-left"></i>
     </button>
-    <button id="nextBtn"
-        class="absolute top-1/2 right-4 transform -translate-y-1/2 bg-primary text-white w-10 h-10 flex items-center justify-center rounded-full hover:bg-black transition" aria-label="Siguiente">
+    <button id="nextBtn" class="absolute top-1/2 right-4 transform -translate-y-1/2 bg-primary text-white w-10 h-10 flex items-center justify-center rounded-full hover:bg-black transition" aria-label="Siguiente">
         <i class="fas fa-chevron-right"></i>
     </button>
 </section>
+
 
 <script>
     document.addEventListener("DOMContentLoaded", () => {
