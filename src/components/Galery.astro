@@ -1,0 +1,45 @@
+---
+const images = [
+  { src: "/images/galeria/oremarc1.avif", alt: "Oremarc S.A.C" },
+  { src: "/images/galeria/oremarc2.avif", alt: "Oremarc S.A.C" },
+  { src: "/images/galeria/oremarc3.avif", alt: "Oremarc S.A.C" },
+  { src: "/images/galeria/oremarc4.avif", alt: "Oremarc S.A.C" },
+  { src: "/images/galeria/oremarc5.avif", alt: "Oremarc S.A.C" },
+  { src: "/images/galeria/oremarc6.avif", alt: "Oremarc S.A.C" },
+  { src: "/images/galeria/oremarc7.avif", alt: "Oremarc S.A.C" },
+  { src: "/images/galeria/oremarc8.avif", alt: "Oremarc S.A.C" },
+  { src: "/images/galeria/oremarc9.avif", alt: "Oremarc S.A.C" },
+  { src: "/images/galeria/oremarc10.avif", alt: "Oremarc S.A.C" },
+  { src: "/images/galeria/oremarc11.avif", alt: "Oremarc S.A.C" },
+  { src: "/images/galeria/oremarc12.avif", alt: "Oremarc S.A.C" }
+];
+---
+
+<section class="py-16 bg-gradient-to-b from-gray-50 to-gray-200">
+    <div class="container mx-auto px-6">
+        <div class="text-center mb-12">
+            <h3 class="text-4xl font-extrabold text-gray-800">
+                Nuestra Galería
+            </h3>
+            <p class="text-lg text-gray-600 mt-2">
+                Satisfacemos todas tus necesidades logísticas.
+            </p>
+        </div>
+        <div class="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+            {images.map((image) => (
+                <div class="group relative rounded-lg overflow-hidden shadow-lg transition-all duration-300 ease-in-out hover:scale-105">
+                    <img 
+                        class="h-auto w-full object-cover transform group-hover:scale-105 transition-transform duration-200 rounded-lg"
+                        src={image.src} 
+                        alt={image.alt} 
+                        loading="lazy"
+                    />
+                    <div class="absolute inset-0 bg-black opacity-25 group-hover:opacity-50 transition-all duration-300"></div>
+                    <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black via-transparent to-transparent py-2 text-center text-white opacity-0 group-hover:opacity-100 transition-all duration-300">
+                        <p class="text-sm">{image.alt}</p>
+                    </div>
+                </div>
+            ))}
+        </div>
+    </div>
+</section>
