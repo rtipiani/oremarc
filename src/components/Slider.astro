@@ -5,10 +5,10 @@
             <!-- Imagen para pantallas grandes -->
             <img src="/images/slide1.avif" alt="Carga paletizada eficiente" class="w-full h-full object-cover lg:block hidden" loading="eager" />
             <!-- Imagen para pantallas pequeñas -->
-            <img src="/images/slide1-1.avif" alt="Carga paletizada eficiente" class="w-full h-full object-cover sm:block md:block lg:hidden" loading="eager" />
-            <div class="absolute inset-0 bg-black bg-opacity-50 flex justify-center items-center px-6 text-white">
+            <img src="/images/slide1-1.avif" alt="Carga paletizada eficiente" class="w-full h-full object-contain sm:block md:block lg:hidden" loading="eager" />
+            <div class="absolute inset-0 bg-black bg-opacity-35 flex justify-center items-center px-6 text-white">
                 <div class="text-center">
-                    <h1 class="text-4xl md:text-6xl font-bold mb-4">
+                    <h1 class="text-2xl md:text-6xl uppercase font-bold mb-4">
                         Transporte de Carga en Plataforma
                     </h1>
                     <p class="text-lg md:text-xl mb-6">
@@ -28,10 +28,10 @@
             <!-- Imagen para pantallas grandes -->
             <img src="/images/slide2.avif" alt="Carga paletizada eficiente" class="w-full h-full object-cover lg:block hidden" loading="lazy" />
             <!-- Imagen para pantallas pequeñas -->
-            <img src="/images/slide2-2.avif" alt="Carga paletizada eficiente" class="w-full h-full object-cover sm:block md:block lg:hidden" loading="lazy" />
-            <div class="absolute inset-0 bg-black bg-opacity-50 flex justify-center items-center px-6 text-white">
+            <img src="/images/slide2-2.avif" alt="Carga paletizada eficiente" class="w-full h-full object-contain sm:block md:block lg:hidden" loading="lazy" />
+            <div class="absolute inset-0 bg-black bg-opacity-35 flex justify-center items-center px-6 text-white">
                 <div class="text-center">
-                    <h1 class="text-4xl md:text-6xl font-bold mb-4">
+                    <h1 class="text-2xl md:text-6xl uppercase font-bold mb-4">
                         Soluciones de Transporte a Medida
                     </h1>
                     <p class="text-lg md:text-xl mb-6">
@@ -51,10 +51,10 @@
             <!-- Imagen para pantallas grandes -->
             <img src="/images/slide3.avif" alt="Carga paletizada eficiente" class="w-full h-full object-cover lg:block hidden" loading="lazy" />
             <!-- Imagen para pantallas pequeñas -->
-            <img src="/images/slide3-3.avif" alt="Carga paletizada eficiente" class="w-full h-full object-cover sm:block md:block lg:hidden" loading="lazy" />
-            <div class="absolute inset-0 bg-black bg-opacity-50 flex justify-center items-center px-6 text-white">
+            <img src="/images/slide3-3.avif" alt="Carga paletizada eficiente" class="w-full h-full object-contain sm:block md:block lg:hidden" loading="lazy" />
+            <div class="absolute inset-0 bg-black bg-opacity-35 flex justify-center items-center px-6 text-white">
                 <div class="text-center">
-                    <h1 class="text-4xl md:text-6xl font-bold mb-4">
+                    <h1 class="text-2xl md:text-6xl uppercase font-bold mb-4">
                         Embalaje Industrial Seguro
                     </h1>
                     <p class="text-lg md:text-xl mb-6">
@@ -88,28 +88,56 @@
         const nextBtn = document.getElementById("nextBtn");
         let currentSlide = 0;
 
+        // Especificar el tipo de autoSlideInterval (number para navegadores)
+        let autoSlideInterval: number;
+
         if (!slider || slides.length === 0) return;
 
+        // Función para actualizar la posición del slider
         const updateSlider = () => {
             slider.style.transform = `translateX(-${currentSlide * 100}%)`;
         };
 
-        const handleAutoSlide = () => setInterval(() => {
-            currentSlide = (currentSlide + 1) % slides.length;
-            updateSlider();
-        }, 5000);
+        // Función para iniciar el auto-slide con manejo de intervalos
+        const handleAutoSlide = () => {
+            // Limpia cualquier intervalo activo antes de iniciar uno nuevo
+            if (autoSlideInterval) clearInterval(autoSlideInterval);
 
+            // Crea un nuevo intervalo para auto-slide
+            autoSlideInterval = window.setInterval(() => {
+                currentSlide = (currentSlide + 1) % slides.length;
+                updateSlider();
+            }, 7000); // Ajusta este valor (en milisegundos) para cambiar la velocidad del slider
+        };
+
+        // Función para pausar el auto-slide
+        const pauseAutoSlide = () => {
+            if (autoSlideInterval) clearInterval(autoSlideInterval);
+        };
+
+        // Controlador de eventos para el botón anterior
         prevBtn?.addEventListener("click", () => {
+            pauseAutoSlide(); // Pausa el auto-slide
             currentSlide = (currentSlide - 1 + slides.length) % slides.length;
             updateSlider();
+            handleAutoSlide(); // Reinicia el auto-slide
         });
 
+        // Controlador de eventos para el botón siguiente
         nextBtn?.addEventListener("click", () => {
+            pauseAutoSlide(); // Pausa el auto-slide
             currentSlide = (currentSlide + 1) % slides.length;
             updateSlider();
+            handleAutoSlide(); // Reinicia el auto-slide
         });
 
+        // Inicia el auto-slide al cargar la página
         handleAutoSlide();
         updateSlider();
+
+        // Opcional: Limpiar el intervalo cuando sea necesario
+        window.addEventListener("beforeunload", () => {
+            pauseAutoSlide(); // Limpia el intervalo al salir de la página
+        });
     });
 </script>
