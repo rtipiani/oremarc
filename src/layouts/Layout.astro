@@ -3,7 +3,7 @@ import WhatsApp from '../components/WhatsApp.astro';
 import '../styles/global.css';
 const meta = {
 	title: "Oremarc | Operador logístico especializado | Operador Logístico en Perú, Logística en Lima.",
-	description: "Somos un Operador Logístico en Perú que diseña los procesos de una o varias fases de la cadena de suministro (transporte, almacenaje y distribución)",
+	description: "Somos un operador logístico especializado en ofrecer soluciones integrales para el transporte, almacenamiento, distribución y gestión de la cadena de suministro. Nos comprometemos a optimizar costos, garantizar la seguridad de tus mercancías y entregar puntualmente, adaptándonos a las necesidades de empresas de todos los tamaños. Contamos con tecnología avanzada y un equipo dedicado a brindarte un servicio eficiente y confiable.",
 	url: "https://oremarc.com.pe/",
 };
 ---
@@ -17,6 +17,7 @@ const meta = {
 		<meta name="author" content="Rubén Tipiani" />
 		<meta name="copyright" content="Copyright (c) 2025 American Trekking Cusco" />
 		<meta name="description" content={meta.description} />
+		<meta name="keywords" content="Mudanza Lima, Mudanza Perú, Estibas, Transporte de carga, Transporte pesada, Transporte liviana, Transporte económico, Transporte barato, Transporte de carga seguro y confiable, Repartos, Courier, Carga en plataforma, Carga en baranda rebatible, Transporte local, Fletes, Transporte en camión, Logística de mudanza Lima, Servicios de transporte en Perú, Fletes económicos, Transporte de mercancías livianas, Reparto de carga puntual, Transporte especializado, Mudanzas empresariales, Transporte y fletes locales, Ventas de pallets, Parihuelas, Cajas de madera para embalaje, Jabas de embalaje de madera, Cajas de cartón embalaje industrial, Cuadrillas para estibaje, Courier industrial, Embalaje, Soluciones de embalaje, Embalajes personalizados, Logística de pallets, Embalaje industrial local, Servicios de embalaje local, Embalaje para transporte, Embalaje seguro, Embalaje eficiente, Materiales de embalaje, Embalaje sostenible, Carga apilable, Carga paletizado, Carga frigorífico, Mudanzas industriales, Mudanzas." />
 		
 		<title>{meta.title}</title>
 
@@ -38,9 +39,57 @@ const meta = {
 		<meta name="twitter:description" content={meta.description} />
 		<meta name="twitter:image" content="https://www.oremarc.com.pe/images/imagen_de_previsualizacion.avif" />
 
+		<link rel="apple-touch-icon" sizes="57x57" href="/images/apple-icon-57x57.png">
+		<link rel="apple-touch-icon" sizes="60x60" href="/images/apple-icon-60x60.png">
+		<link rel="apple-touch-icon" sizes="72x72" href="/images/apple-icon-72x72.png">
+		<link rel="apple-touch-icon" sizes="76x76" href="/images/apple-icon-76x76.png">
+		<link rel="apple-touch-icon" sizes="114x114" href="/images/apple-icon-114x114.png">
+		<link rel="apple-touch-icon" sizes="120x120" href="/images/apple-icon-120x120.png">
+		<link rel="apple-touch-icon" sizes="144x144" href="/images/apple-icon-144x144.png">
+		<link rel="apple-touch-icon" sizes="152x152" href="/images/apple-icon-152x152.png">
+		<link rel="apple-touch-icon" sizes="180x180" href="/images/apple-icon-180x180.png">
+		<link rel="icon" type="image/png" sizes="192x192"  href="/images/android-icon-192x192.png">
+		<link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png">
+		<link rel="icon" type="image/png" sizes="96x96" href="/images/favicon-96x96.png">
+		<link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png">
+		<link rel="manifest" href="/images/manifest.json">
+		<meta name="msapplication-TileColor" content="#ffffff">
+		<meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
+		<meta name="theme-color" content="#ffffff">
+
+		<script async src="https://www.googletagmanager.com/gtag/js?id=G-TT0QHZ325Z"></script>
+		<script defer>
+		// Google Analytics
+		window.dataLayer = window.dataLayer || [];
+		function gtag() {
+			window.dataLayer.push(arguments);
+		}
+		gtag('js', new Date());
+		gtag('config', 'G-TT0QHZ325Z');
+		</script>
+
+		<!-- Google Tag Manager de manera diferida -->
+		<script defer>
+		(function(w, d, s, l, i) {
+			w[l] = w[l] || [];
+			w[l].push({'gtm.start': new Date().getTime(), event: 'gtm.js'});
+			var f = d.getElementsByTagName(s)[0];
+			if (f && f.parentNode) {
+			var j = d.createElement(s);
+			var dl = l !== 'dataLayer' ? '&l=' + l : '';
+			j.async = true;
+			j.src = 'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
+			f.parentNode.insertBefore(j, f);
+			}
+		})(window, document, 'script', 'dataLayer', 'GTM-K3387VL3');
+		</script>
 	</head>
 	<body>
 		<slot />
 		<WhatsApp />
+		<noscript>
+			<iframe src="https://www.googletagmanager.com/ns.html?id=GTM-K3387VL3"
+			height="0" width="0" style="display:none;visibility:hidden"></iframe>
+		</noscript>
 	</body>
 </html>
